@@ -1,13 +1,24 @@
-import { useState } from 'react'
-import './index.css'
-import './component/pages/Home'
-import Home from './component/pages/products'
-function App() {
-  const [count, setCount] = useState(0)
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './index.css';
+import Home from './component/pages/Home';
+import Products from './component/pages/products';
+import Cart from './component/pages/cart';
+import CustomBouquet from './component/pages/CustomBouquet';
+import Layout from './component/Layout';
+
+
+const App =()=>{
 
   return (
-  
-    <Home/>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout><Home/></Layout>} />
+        <Route path='/products' element={<Layout><Products/></Layout>} />
+        <Route path='/cart' element={<Layout><Cart/></Layout>} />
+        <Route path='/custom-bouquet' element={<Layout><CustomBouquet/></Layout>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
