@@ -11,13 +11,13 @@ useEffect(()=>{
 },[]);
 
 return (
-  <section>
-    <h2>Featured Flowers</h2>
+  <section className="mt-10">
+    <h2 className="text-2xl font-bold mb-6 text-center">Featured Flowers</h2>
     {
       products.length==0 ?(
         <p>...Loading</p>
       ):(
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {
             products.map((product)=>(
               <Card key={product.id} product={product}/>
