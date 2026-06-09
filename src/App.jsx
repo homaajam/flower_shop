@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import Home from './component/pages/Home';
-import Products from './component/pages/products';
-import Cart from './component/pages/cart';
+import Products from './component/pages/Products';
+import Cart from './component/pages/Cart';
 import CustomBouquet from './component/pages/CustomBouquet';
 import Layout from './component/Layout';
 
