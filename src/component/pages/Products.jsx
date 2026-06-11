@@ -25,7 +25,7 @@ const Products =()=>{
         onChange={(e)=> setSearch(e.target.value)}/>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products.length == 0 ? (<h1>Loading...</h1>) :
+        {products.length == 0 ? (<h1>...Loading</h1>) :
         (filterProducts.map((product)=>(
           <Card key={product.id} product={product}/>
         )))
