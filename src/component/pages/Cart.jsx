@@ -8,7 +8,11 @@ const Cart =()=>{
   const dispatch=useDispatch();
   const total=cartItems.reduce((sum, item)=> sum + item.price, 0);
 
-  const handleRemove=(id)=>{dispatch(removeFromCart(id))}
+  const handleRemove=(id)=>{
+    dispatch(removeFromCart(id))
+  }
+
+  
   return (
     <div>
       <h1>Your Cart</h1>
