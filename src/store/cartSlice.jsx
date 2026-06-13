@@ -16,14 +16,14 @@ const cartSlice= createSlice({
     },
     decreaseQuantity: (state, action)=>{
       const item=state.items.find((item)=> item.id === action.payload);
-      if(item.quantity=1){
+      if(item.quantity === 1){
         state.items=state.items.filter((item)=> item.id !== action.payload );
       }else{
         item.quantity -=1;
       }
     },
     removeFromCart: (state, action)=>{
-      state.items.filter((item)=> item.id !== action.payload);
+      state.items=state.items.filter((item)=> item.id !== action.payload);
     },
   },
 
