@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "../../store/cartSlice";
+import { removeFromCart, addToCart, decreaseQuantity } from "../../store/cartSlice";
 
 
 const Cart =()=>{
@@ -23,6 +23,11 @@ const Cart =()=>{
             <div key={item.id}>
               <h3>{item.name}</h3>
               <p>{item.price}</p>
+              <div>
+                <button onClick={()=> dispatch(decreaseQuantity(item.id))}>➖</button>
+                <span>{item.quantity}</span>
+                <button onClick={()=> dispatch(addToCart(item))}>➕</button>
+              </div>
               <button onClick={()=> handleRemove(item.id)}>Remove</button>
             </div>
           ))
