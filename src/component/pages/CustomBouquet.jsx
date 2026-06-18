@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../store/cartSlice";
 
 const CustomBouquet =()=>{
+
   const [flowers, setFlowers]=useState([]);
   const [wraps, setWraps]=useState([]);
   const [ribbons, setRibbons]=useState([]);
@@ -11,12 +12,7 @@ const CustomBouquet =()=>{
   const [wrap, setWrap]=useState(null);
   const [ribbon, setRibbon]=useState(null);
   const [image, setImage]=useState("");
-
-  const cartItems=useSelector((state)=>state.cart.items);
-  console.log(wrap)
-  console.log(ribbon)
-  console.log(selectedFlowers)
-  console.log(cartItems)
+  
 
   useEffect(()=>{
     Promise.all([
@@ -29,6 +25,7 @@ const CustomBouquet =()=>{
       setRibbons(r);
     });
   },[])
+
   if(!flowers.length || !wraps.length || !ribbons.length){
     return <h2 className="p-6">Loading...</h2>;
   }
@@ -39,6 +36,20 @@ const CustomBouquet =()=>{
       setSelectedFlowers(selectedFlowers.filter((f)=> f.id !== flower.id));
     }else{
       setSelectedFlowers([...selectedFlowers, flower])
+    }
+  }
+  const addWrap=(w)=>{
+    if(wrap?.id === w.id){
+      setWrap(null);
+    }else{
+      setWrap(w);
+    }
+  }
+  const addRibbon=(r)=>{
+    if(ribbon?.id === r.id){
+      setRibbon(null);
+    }else{
+      setRibbon(r);
     }
   }
 
@@ -62,7 +73,7 @@ const CustomBouquet =()=>{
             <div key={flower.id}
             onClick={()=> addFlower(flower)}
             className={`cursor-pointer w-32 p-2 rounded-lg border-2 
-              ${isSelected ? "border-pink-500" : "border-transparent"}`}>
+              ${isSelected ? "border-pink-500" : ""}`}>
               <img className="w-full h-20 object-cover rounded" src={flower.image}/>
               <p className="text-center text-sm mt-2">{flower.name}</p>
             </div>
@@ -77,9 +88,9 @@ const CustomBouquet =()=>{
             <div key={w.id}
             className={`cursor-pointer w-32 p-2 rounded-lg border-2 
               ${wrap?.id === w.id ? "border-pink-500" : ""}`}
-            onClick={()=> setWrap(w)}>
-              <img src={w.image} className="w-full h-16 object-cover rounded"/>
-              <p className="text-center text-sm mt-1">{w.name}</p>
+            onClick={()=> addWrap(w)}>
+              <img src={w.image} className="w-full h-20 object-cover rounded"/>
+              <p className="text-center text-sm mt-2 pb-5">{w.name}</p>
             </div>
           )
         })}
@@ -90,17 +101,18 @@ const CustomBouquet =()=>{
         {ribbons.map((r)=>{
           return (
             <div key={r.id}
-            onClick={()=> setRibbon(r)}
+            onClick={()=> addRibbon(r)}
             className={`cursor-pointer w-32 p-2 rounded-lg border-2 
               ${ribbon?.id === r.id ? "border-pink-500" : ""}`}>
-              <img src={r.image} className="w-full h-16 object-cover rounded"/>
-              <p className="text-center text-sm mt-1">{r.name}</p>
+              <img src={r.image} className="w-full h-20 object-cover rounded"/>
+              <p className="text-center text-sm mt-2 pb-5">{r.name}</p>
             </div>
           )
         })}
       </div>
       <div>
-        <button onClick={()=> handleAddToCart()}>Add To Cart</button>
+        <button onClick={()=> handleAddToCart()}
+          className="mt-3 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg transition">Add To Cart</button>
       </div>
     </div>
   )
