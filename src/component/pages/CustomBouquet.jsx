@@ -1,5 +1,8 @@
 import { getProducts, getWraps, getRibbons } from "../../utils/_DATA";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../store/cartSlice";
+
 const CustomBouquet =()=>{
   const [flowers, setFlowers]=useState([]);
   const [wraps, setWraps]=useState([]);
@@ -8,6 +11,12 @@ const CustomBouquet =()=>{
   const [wrap, setWrap]=useState(null);
   const [ribbon, setRibbon]=useState(null);
   const [image, setImage]=useState("");
+
+  const cartItems=useSelector((state)=>state.cart.items);
+  console.log(wrap)
+  console.log(ribbon)
+  console.log(selectedFlowers)
+  console.log(cartItems)
 
   useEffect(()=>{
     Promise.all([
@@ -31,6 +40,14 @@ const CustomBouquet =()=>{
     }else{
       setSelectedFlowers([...selectedFlowers, flower])
     }
+  }
+
+  const dispatch=useDispatch();
+  const handleAddToCart=()=>{
+    selectedFlowers?.forEach((flower)=>{
+      if (flower) dispatch(addToCart(flower))});
+    if (wrap) dispatch(addToCart(wrap));
+    if (ribbon) dispatch(addToCart(ribbon));
   }
 
   return (
@@ -81,6 +98,9 @@ const CustomBouquet =()=>{
             </div>
           )
         })}
+      </div>
+      <div>
+        <button onClick={()=> handleAddToCart()}>Add To Cart</button>
       </div>
     </div>
   )
