@@ -74,7 +74,7 @@ let products =[
     price: 4
   },
   {
-    id: 11,
+    id: 12,
     category: "wrap",
     name: "White Wrap",
     color: "white",
