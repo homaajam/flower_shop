@@ -66,7 +66,7 @@ let products =[
 
  let wraps =[
   {
-    id: 1,
+    id: 11,
     category: "wrap",
     name: "Red Wrap",
     color: "red",
@@ -74,7 +74,7 @@ let products =[
     price: 4
   },
   {
-    id: 2,
+    id: 11,
     category: "wrap",
     name: "White Wrap",
     color: "white",
@@ -85,7 +85,7 @@ let products =[
 
 const ribbons =[
   {
-    id: 1,
+    id: 21,
     category: "ribbon",
     name: "Red Ribbon",
     color: "red",
@@ -93,14 +93,14 @@ const ribbons =[
     price: 2
   },
   {
-    id: 2,
+    id: 22,
     category: "ribbon",
     name: "Blue Ribbon",
     color: "blue",
     image: "https://i.pinimg.com/736x/4a/3b/e7/4a3be7c5abc6a941ed88085fd4e78479.jpg",
     price: 3
   },
-  {id: 3,
+  {id: 23,
     name: "Gold Ribbon",
     category: "ribbon",
     color: "gold",
