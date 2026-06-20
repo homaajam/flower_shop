@@ -9,7 +9,7 @@ let products =[
   {
     id: 2,
     category: "flower",
-    name: "Tulip",
+    name: "Pink Tulip",
     price: 30,
     image: "https://i.pinimg.com/736x/04/16/9d/04169dcddea45ee42afccef95108e195.jpg"
   },
@@ -37,14 +37,14 @@ let products =[
   {
     id: 6,
     category: "flower",
-    name: "Mixed Spring Flowers",
+    name: "Soft Pink Anthurium",
     price: 28,
-    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+    image: "https://i.pinimg.com/736x/37/ca/f0/37caf0cec0dacf21bb83d58894a27e90.jpg"
   },
   {
     id: 7,
     category: "flower",
-    name: "Orchid Elegance",
+    name: "Purple Orchid",
     price: 50,
     image: "https://i.pinimg.com/736x/09/65/e1/0965e178cb523ab031a5110cef0c81a4.jpg"
   },
@@ -58,9 +58,9 @@ let products =[
   {
     id: 9,
     category: "flower",
-    name: "Wedding Bouquet",
+    name: "Pink gerbera",
     price: 60,
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552"
+    image: "https://i.pinimg.com/1200x/5e/d2/29/5ed229f83ea5d97921aefd66ea2f2627.jpg"
   }
 ];
 
@@ -70,17 +70,26 @@ let products =[
     category: "wrap",
     name: "Red Wrap",
     color: "red",
-    image: "",
+    image: "https://i.pinimg.com/736x/61/85/e6/6185e6e4a196d1cecef8eb05db5d15a1.jpg",
     price: 4
   },
   {
     id: 12,
     category: "wrap",
-    name: "White Wrap",
-    color: "white",
-    image: "",
+    name: "Pink Wrap",
+    color: "pink",
+    image: "https://i.pinimg.com/736x/4a/b7/1b/4ab71ba429a8f80a7e97fac1cff259e8.jpg",
+    price: 4
+  },
+  {
+    id: 13,
+    category: "wrap",
+    name: "Navy Wrap",
+    color: "navy",
+    image: "https://i.pinimg.com/736x/90/7d/d2/907dd21e428453a6d6350524e0564772.jpg",
     price: 4
   }
+
 ];
 
 const ribbons =[
