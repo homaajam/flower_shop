@@ -2,9 +2,9 @@ import { getProducts, getWraps, getRibbons } from "../../utils/_DATA";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../store/cartSlice";
-
+import { generateBouquetImage } from "../../utils/ai";
 const CustomBouquet =()=>{
-
+  const dispatch=useDispatch();
   const [flowers, setFlowers]=useState([]);
   const [wraps, setWraps]=useState([]);
   const [ribbons, setRibbons]=useState([]);
@@ -12,6 +12,19 @@ const CustomBouquet =()=>{
   const [wrap, setWrap]=useState(null);
   const [ribbon, setRibbon]=useState(null);
   const [image, setImage]=useState("");
+
+  const handleGenerate=async()=>{
+    if(!selectedFlowers || !wrap || !ribbon){
+      alert("Select all options");
+      return;
+    }
+    const img=await generateBouquetImage(
+      selectedFlowers,
+      wrap,
+      ribbon
+    );
+    setImage(img);
+  };
   
 
   useEffect(()=>{
@@ -53,7 +66,7 @@ const CustomBouquet =()=>{
     }
   }
 
-  const dispatch=useDispatch();
+  
   const handleAddToCart=()=>{
     selectedFlowers?.forEach((flower)=>{
       if (flower) dispatch(addToCart(flower))});
@@ -109,6 +122,12 @@ const CustomBouquet =()=>{
             </div>
           )
         })}
+      </div>
+      <div>
+        <button onClick={handleGenerate}
+        className="mt-3 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg transition"
+        >Generate Bouquet</button>
+        {image && <img src={image} alt="bouquet" />}
       </div>
       <div>
         <button onClick={()=> handleAddToCart()}
